@@ -1,3 +1,4 @@
+
 export function dombutton(idbutton){
     const btn = document.getElementById(idbutton);
     btn.addEventListener('mouseover', () =>{
@@ -11,9 +12,9 @@ export function dombutton(idbutton){
         btn.style.padding = "10px 15px";
     });
 };
-export function clickbuttom(idbutton) {
+export function ouvrirpage(idbutton, nompage) {
     const btn = document.getElementById(idbutton);
     btn.addEventListener('click', () => {
-        btn.
+        window.location.href = nompage;
     })
 }
