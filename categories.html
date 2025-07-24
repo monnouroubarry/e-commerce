@@ -7,15 +7,40 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header id="myheader">Bienvenue dans notre site e-commerce
-        <div id="divlogo"><img id="logo" src="./assets/logo.png" alt="notre logo"></div>
-    </header>
-    <div id="btn_navigation">
-        <button id="accueil">Accueil</button>
-        <button id="categories">Catégories</button>
-        <button id="produits">Produits</button>
-        <button id="panier">Panier</button>
+  <header id="myheader">
+  <div class="header-top">
+    <div class="bienvenue">Bienvenue sur notre boutique !</div>
+
+    <div class="recherche">
+      <input type="text" placeholder="Rechercher un produit..." />
     </div>
+
+    <img src="assets/logo.png" alt="Logo" id="logo" />
+  </div>
+
+  <div class="navbar">
+    <div class="nav-links">
+      <button id="accueil">Accueil</button>
+      <button id="categories">Catégories</button>
+      <button id="produits">Produits</button>
+      <button id="panier">Panier</button>
+    </div>
+  </div>
+</header>
+ <!-- Section de filtre catégorie -->
+  <section class="filtre-categorie">
+    <h1>Sélectionnez une catégorie</h1>
+    <select id="select-categorie">
+      <option value="">-- Choisissez une catégorie --</option>
+    </select>
+  </section>
+   <h1>Catégorie : <span id="nom-categorie"></span></h1>
+  <!-- Zone d’affichage des produits -->
+  <main id="liste-produits"></main>
+     <!-- Titre avec nom de la catégorie injecté en JS -->
+
+     <!-- Conteneur pour les produits -->
+  <main></main>
     <script type="module" src="script.js"></script>
     <script type="module" src="categories.js"></script>
 </body>
