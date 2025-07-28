@@ -1,37 +1,26 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>produits</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Produits - Nour Shop</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header id="myheader">
-  <div class="header-top">
-    <div class="bienvenue">Bienvenue sur notre boutique !</div>
-
-    <div class="recherche">
-      <input type="text" placeholder="Rechercher un produit..." />
-    </div>
-
-    <img src="assets/logo.png" alt="Logo" id="logo" />
-  </div>
-
-  <div class="navbar">
-    <div class="nav-links">
-      <button id="accueil">Accueil</button>
-      <button id="categories">Catégories</button>
-      <button id="produits">Produits</button>
-      <button id="panier">Panier</button>
-    </div>
-  </div>
-</header>
-    <h1>Nos produits disponibles</h1>
-    <main>
-        
-    </main>
-    <script type="module" src="script.js"></script>
-    <script type="module" src="produits.js"></script>
+  <header>
+    <img src="assets/logo.png" alt="Logo" class="logo">
+    <input type="text" id="recherche-produit" placeholder="Rechercher un produit...">
+    <nav>
+      <button id="Accueil">Accueil</button>
+      <button id="Categories">Catégories</button>
+      <button id="Produits">Produits</button>
+      <button id="Panier"><img src="assets/panier.png" id="icone-panier" class="icone-panier" alt="Panier"></button>
+    </nav>
+  </header>
+  <main id="main-produits">
+    <h1>Nos Produits</h1>
+    <div id="liste-produits" class="grille-produits"></div>
+  </main>
+  <script src="js/script.js"></script>
+  <script src="js/affichage.js"></script>
 </body>
 </html>

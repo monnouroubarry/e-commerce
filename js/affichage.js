@@ -1,10 +1,8 @@
-'use strict';
-
-// Produits (exemple)
+// Fichier de démonstration
 const produits = [
-  { nom: "Culotte NBA 1", prix: 0, image: "assets/cullotnba1.png", categorie: "Culotte" },
-  { nom: "Culotte NBA 2", prix: 0, image: "assets/cullotnba2.png", categorie: "Culotte"},
-  { nom: "Veste NBA 1", prix: 0, image: "assets/jacketnba1.png", categorie: "Veste NBA" },
+  { nom: "Culotte NBA 1", prix: 80000, image: "assets/cullotnba1.png", categorie: "Culotte" },
+  { nom: "Culotte NBA 2", prix: 80000, image: "assets/cullotnba2.png", categorie: "Culotte"},
+  { nom: "Veste NBA 1", prix: 200000, image: "assets/jacketnba1.png", categorie: "Veste NBA" },
   { nom: "Veste NBA 2", prix: 0, image: "assets/jacketnba2.png", categorie: "Veste NBA" },
   { nom: "Veste NBA 3", prix: 0, image: "assets/jacketnba3.png", categorie: "Veste NBA" },
   { nom: "Veste NBA 4", prix: 0, image: "assets/jacketnba4.png", categorie: "Veste NBA" },
@@ -19,10 +17,8 @@ const produits = [
   { nom: "Kit Barça", prix: 0, image: "assets/kitbarca.png", categorie: "Maillot football" },
   { nom: "Kit France", prix: 0, image: "assets/kitfrance.png", categorie: "Maillot football" },
   { nom: "Kit Paris", prix: 0, image: "assets/kitparis.png", categorie: "Maillot football" },
-  { nom: "Kit Real Madrid", prix: 0, image: "assets/kitrealmadrid.jpeg", categorie: "Maillot football" },
   { nom: "Maillot Lakers 1", prix: 0, image: "assets/lakers1.png", categorie: "Kit Basketball" },
   { nom: "Maillot Lakers 2", prix: 0, image: "assets/lakers2.png", categorie: "Kit Basketball" },
-  { nom: "Pantalon Femme 1", prix: 0, image: "assets/pantalonfemme1.png", categorie: "Pantalon femme" },
   { nom: "Pantalon Femme 2", prix: 0, image: "assets/pantalonfemme2.png", categorie: "Pantalon femme" },
   { nom: "Pantalon Femme 3", prix: 0, image: "assets/pantalonfemme3.png", categorie: "Pantalon femme" },
   { nom: "Pantalon Femme 4", prix: 0, image: "assets/pantalonfemme4.png", categorie: "Pantalon femme" },
@@ -53,71 +49,40 @@ const produits = [
   { nom: "Talon 5", prix: 0, image: "assets/talon5.png", categorie: "Chaussire Talon" },
 ];
 
-// Remplir le <select> avec les catégories
-function remplirSelect() {
-  const select = document.getElementById('select-categorie');
-  const categories = [...new Set(produits.map(p => p.categorie))];
+const conteneur = document.getElementById("liste-produits");
 
-  categories.forEach(categorie => {
-    const option = document.createElement('option');
-    option.value = categorie;
-    option.textContent = categorie;
-    select.appendChild(option);
-  });
-}
+produits.forEach(produit => {
+  const div = document.createElement("div");
+  div.className = "carte-produit";
+  div.innerHTML = `
+    <img src="${produit.image}" alt="${produit.nom}">
+    <h3>${produit.nom}</h3>
+    <p>Prix : ${produit.prix}€</p>
+    <button class="ajouter-panier" onclick='ajouterAuPanier(${JSON.stringify(produit)})'>Ajouter au panier</button>
+  `;
+  conteneur.appendChild(div);
+});
 
-// Afficher les produits d'une catégorie
-function afficherProduits(categorie) {
-  const conteneur = document.getElementById('liste-produits');
-  conteneur.innerHTML = '';
+// Fonction pour filtrer les produits en fonction de la recherche
+document.getElementById("recherche-produit").addEventListener("input", function () {
+  const recherche = this.value.toLowerCase();
+  const cartes = document.querySelectorAll(".carte-produit"); // classe que tu donnes à chaque carte
 
-  const produitsFiltres = produits.filter(p => p.categorie === categorie);
-
-  if (produitsFiltres.length === 0) {
-    conteneur.innerHTML = `<p>Aucun produit trouvé.</p>`;
-    return;
-  }
-
-  produitsFiltres.forEach(produit => {
-    const div = document.createElement('div');
-    div.className = 'produit';
-
-    div.innerHTML = `
-      <img src="${produit.image}" alt="${produit.nom}" />
-      <h3>${produit.nom}</h3>
-      <p>${produit.prix.toLocaleString()} GNF</p>
-      <button class="btn-ajouter">
-        <img src="assets/panier.png" class="icone-panier" alt="panier" />
-        Ajouter au panier
-      </button>
-    `;
-
-    div.querySelector('.btn-ajouter').addEventListener('click', () => {
-      ajouterAuPanier(produit);
-    });
-
-    conteneur.appendChild(div);
-  });
-}
-
-// Ajouter au panier via localStorage
-function ajouterAuPanier(produit) {
-  const panier = JSON.parse(localStorage.getItem('panier')) || [];
-  panier.push(produit);
-  localStorage.setItem('panier', JSON.stringify(panier));
-  alert(`${produit.nom} ajouté au panier`);
-}
-
-// Initialisation
-document.addEventListener('DOMContentLoaded', () => {
-  remplirSelect();
-
-  document.getElementById('select-categorie').addEventListener('change', (e) => {
-    const categorieChoisie = e.target.value;
-    if (categorieChoisie) {
-      afficherProduits(categorieChoisie);
+  cartes.forEach((carte) => {
+    const nom = carte.querySelector("h3").textContent.toLowerCase();
+    if (nom.includes(recherche)) {
+      carte.style.display = "block";
     } else {
-      document.getElementById('liste-produits').innerHTML = '';
+      carte.style.display = "none";
     }
   });
 });
+
+
+function ajouterAuPanier(produit) {
+  let panier = JSON.parse(localStorage.getItem("panier")) || [];
+  panier.push(produit);
+  localStorage.setItem("panier", JSON.stringify(panier));
+  alert("Produit ajouté au panier !");
+}
+
