@@ -1,3 +1,4 @@
+'use strict';
 function afficherPanier() {
   const panier = JSON.parse(localStorage.getItem("panier")) || [];
   const conteneur = document.getElementById("contenu-panier");

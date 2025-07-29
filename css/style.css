@@ -198,6 +198,7 @@ main {
   padding: 20px;
   max-width: 1200px;
   margin: auto;
+  
 }
 
 /*Style Accueil*/
@@ -205,11 +206,13 @@ main {
 /* === Produits en promotion (Accueil) === */
 
 .produits-promo-container {
-  display: flex;
   overflow-x: auto;
-  gap: 1rem;
-  padding: 1rem;
   scroll-snap-type: x mandatory;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin: 100px auto 30x auto;
+  padding: 20px;
 }
 
 .produits-promo-container::-webkit-scrollbar {

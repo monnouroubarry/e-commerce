@@ -1,3 +1,4 @@
+'use strict';
 // Exemple de liste de produits utilisée pour la recherche (à adapter si tu charges ce tableau ailleurs)
 const produits = [
   { nom: "Culotte NBA BULLS", prix: 10, image: "assets/cullotnba1.png", categorie: "Culotte" },
@@ -67,22 +68,22 @@ function afficherProduitsAccueil(produitsAffiches) {
     carte.innerHTML = `
       <img src="${produit.image}" alt="${produit.nom}">
       <h3>${produit.nom}</h3>
-      <p id="prix-recherche-accueil"><del> </del> <strong> $ ${produit.prix}</strong></p>
+      <p id="prix-recherche-accueil"><del> </del>  $ ${produit.prix}</p>
       <button class="ajouter-panier" data-produit='${JSON.stringify(produit)}'>Ajouter au panier</button>
     `;
     conteneurAccueil.appendChild(carte);
   });
 
-  activerBoutonsPanier();
+  ajouterAuPanier();
 }
 
-function activerBoutonsPanier() {
+function ajouterAuPanier() {
   const boutons = document.querySelectorAll(".ajouter-panier");
   boutons.forEach((btn) => {
     btn.addEventListener("click", () => {
       const produit = JSON.parse(btn.dataset.produit);
       let panier = JSON.parse(localStorage.getItem("panier")) || [];
-      const index = panier.findIndex((item) => item.nom === produit.nom);
+      const index = panier.findIndex((p) => p.nom === produit.nom);
       if (index !== -1) {
         panier[index].quantite += 1;
       } else {
@@ -90,7 +91,7 @@ function activerBoutonsPanier() {
         panier.push(produit);
       }
       localStorage.setItem("panier", JSON.stringify(panier));
-      window.location.href = "panier.html";
+      alert('Produit ajouter dans le panier !');
     });
   });
 }

@@ -1,3 +1,4 @@
+'use strict';
 // Ton tableau de produits
 const produits = [
   { nom: "Culotte NBA BULLS", prix: 10, image: "assets/cullotnba1.png", categorie: "Culotte" },
@@ -62,11 +63,12 @@ function afficherProduits(produitsAAfficher) {
       <img src="${produit.image}" alt="${produit.nom}">
       <h3>${produit.nom}</h3>
       <p>Prix : $ ${produit.prix}</p>
-      <button class="ajouter-panier" onclick='ajouterAuPanier(${JSON.stringify(produit)})'>Ajouter au panier</button>
+      <button class="ajouter-panier" data-produit='${JSON.stringify(produit)}'>Ajouter au panier</button>
 
     `;
     listeProduits.appendChild(div);
   });
+  ajouterAuPanier();
 }
 
 // Fonction pour filtrer les produits en fonction de la recherche
@@ -107,20 +109,23 @@ filtreCategorie.addEventListener("change", () => {
 });
 
 // Gestion du panier
-function ajouterAuPanier(produit) {
-  let panier = JSON.parse(localStorage.getItem("panier")) || [];
-
-  const index = panier.findIndex(p => p.nom === produit.nom);
-
-  if (index !== -1) {
-    panier[index].quantite += 1;
-  } else {
-    const produitAvecQuantite = { ...produit, quantite: 1 };
-    panier.push(produitAvecQuantite);
-  }
-
-  localStorage.setItem("panier", JSON.stringify(panier));
-  alert("Produit ajouté au panier !");
+function ajouterAuPanier() {
+  const boutons = document.querySelectorAll(".ajouter-panier");
+  boutons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const produit = JSON.parse(btn.dataset.produit);
+      let panier = JSON.parse(localStorage.getItem("panier")) || [];
+      const index = panier.findIndex((p) => p.nom === produit.nom);
+      if (index !== -1) {
+        panier[index].quantite += 1;
+      } else {
+        produit.quantite = 1;
+        panier.push(produit);
+      }
+      localStorage.setItem("panier", JSON.stringify(panier));
+      alert('Produit ajouter dans le panier !');
+    });
+  });
 }
 
 

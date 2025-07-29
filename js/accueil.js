@@ -1,3 +1,4 @@
+'use strict';
 // === Produits en promotion ===
 const produitsPromo = [
     { nom: "Jupe Longue Rouge",prixOriginal: 20, prix: 12, image: "assets/jupelong3.png"},
@@ -36,15 +37,23 @@ produitsPromo.forEach((produit) => {
 function ajouterAuPanier(produit) {
   const panier = JSON.parse(localStorage.getItem("panier")) || [];
 
-  // Chercher si le produit existe déjà dans le panier
+  // On extrait uniquement les données souhaitées
+  const produitPanier = {
+    nom: produit.nom,
+    prix: produit.prix,
+    image: produit.image,
+  };
+
+  // Vérifie si le produit est déjà dans le panier
   const index = panier.findIndex(p => p.nom === produit.nom);
   if (index !== -1) {
     panier[index].quantite += 1;
   } else {
-    panier.push({ ...produit, quantite: 1 });
+    panier.push({ ...produitPanier, quantite: 1 });
   }
 
   localStorage.setItem("panier", JSON.stringify(panier));
-  alert(`${produit.nom} ajouté au panier !`); // affiche une alerte
+  alert(`${produit.nom} ajouté au panier !`);
 }
+
 
