@@ -18,9 +18,30 @@
   <main id="main-panier">
     <h1>Votre Panier</h1>
     <div id="contenu-panier" class="contenu-panier"></div>
+    <p id="quantite-totale"></p>
     <p id="total"></p>
+
     <button id="vider" onclick="viderPanier()">Vider le panier</button>
   </main>
+  <div id="modal-produit" class="modal">
+  <div class="modal-contenu">
+    <span class="fermer">&times;</span>
+    <img id="modal-image" src="" alt="Produit" />
+    <h2 id="modal-nom"></h2>
+    <p id="modal-prix"></p>
+    <p id="modal-description"></p>
+  </div>
+  </div>
+
+  <footer>
+    <p>Suivez-nous :</p>
+    <div class="footer-links">
+      <a href="https://www.facebook.com/profile.php?id=100085094231667&sk=about" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/munir_barri/" target="_blank">Instagram</a>
+      <a href="mailto:barrymounir274@gmail.com">E-mail</a>
+    </div>
+    <p>&copy; 2025 Nour Boutique. Tous droits réservés.</p>
+  </footer>
   <script src="js/script.js"></script>
   <script src="js/panier.js"></script>
 </body>

@@ -44,3 +44,5 @@ ouvrirpage('Accueil','index.html');
 ouvrirpage('Categories','categories.html');
 ouvrirpage('Produits','produits.html');
 ouvrirpage('Panier','panier.html');
+
+// Fonction pour activer la modale et le survol

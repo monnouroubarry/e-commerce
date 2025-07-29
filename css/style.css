@@ -21,22 +21,56 @@ header {
   z-index: 1000;
 }
 /* ===== CHAMP DE RECHERCHE ===== */
-#recherche-produit, #recherche-accueil{
+/* #recherche-produit, #recherche-accueil{
   flex: 1;
-  max-width: 400px;
+  max-width: 500px;
   padding: 8px 12px;
-  border-radius: 5px;
+  border-radius: 15px;
   border: 1px solid #ccc;
   font-size: 16px;
+} */
+.recherche-container {
+  position: relative;
+  display: inline-block;
+  width: 500px; /* ✅ Largeur augmentée */
 }
+
+.recherche-container input {
+  width: 100%;
+  padding-right: 40px; /* ✅ Espace pour la loupe à droite */
+  height: 40px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.recherche-container input:focus {
+  border-color: #007BFF; /* Couleur bleue par exemple */
+  outline: none;
+  box-shadow: 0 0 5px #007BFF; /* Optionnel : effet lumineux */
+}
+
+.icone-loupe {
+  position: absolute;
+  top: 50%;
+  right: 10px; /* ✅ Icône à droite */
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
 
 /* === FOOTER FIXE === */
 footer {
+  left: 0;
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 60px;
-  background-color: #f0f0f0;
+  height: 80px;
+  background-color: #ece687;
   color: #333;
   text-align: center;
   padding-top: 1rem;
@@ -256,3 +290,30 @@ main {
   padding: 20px;
   justify-items: center;
 }
+
+.champ-quantite {
+  width: 50px;
+  margin-left: 5px;
+}
+
+.controle-quantite {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.controle-quantite button {
+  padding: 2px 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.controle-quantite span {
+  min-width: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+

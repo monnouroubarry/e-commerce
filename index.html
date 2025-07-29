@@ -8,7 +8,10 @@
 <body>
   <header>
     <img src="assets/logo.png" alt="Logo" class="logo">
-    <input type="text" id="recherche-accueil" placeholder="Rechercher..." />
+    <div class="recherche-container">
+      <input type="text" id="recherche-accueil" placeholder="Rechercher..." img />
+      <img class="icone-loupe" src="assets/loupe.png" alt="icone-recherche">
+    </div>
     <nav>
       <button id="Accueil">Accueil</button>
       <button id="Categories">Catégories</button>
@@ -17,7 +20,7 @@
     </nav>
   </header>
   <main id="main-accueil">
-    <h1>Produits en Promotion</h1>
+    <h1>Produits en Promotion</h1> 
 
     <div class="produits-promo-container">
       <!-- Les cartes promo seront injectées ici par JS -->

@@ -19,7 +19,7 @@ produitsPromo.forEach((produit) => {
     <img src="${produit.image}" alt="${produit.nom}">
     <h3>${produit.nom}</h3>
     <div class="prixOriginal">${produit.prixOriginal}€</div>
-    <div class="promo">${produit.prix}€</div>
+    <div class="promo">$ ${produit.prix}</div>
     <button>Ajouter au panier</button>
   `;
 

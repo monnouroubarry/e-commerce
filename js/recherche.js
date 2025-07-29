@@ -68,7 +68,7 @@ function afficherProduitsAccueil(produitsAffiches) {
     carte.innerHTML = `
       <img src="${produit.image}" alt="${produit.nom}">
       <h3>${produit.nom}</h3>
-      <p><del>${produit.prix}€</del> <strong>${produit.prix}€</strong></p>
+      <p><del> </del> <strong> $ ${produit.prix}</strong></p>
       <button class="ajouter-panier" data-produit='${JSON.stringify(produit)}'>Ajouter au panier</button>
     `;
     conteneurAccueil.appendChild(carte);

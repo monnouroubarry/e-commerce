@@ -1,17 +1,17 @@
 // Fichier de démonstration
 const produits = [
-  { nom: "Culotte NBA 1", prix: 80000, image: "assets/cullotnba1.png", categorie: "Culotte" },
-  { nom: "Culotte NBA 2", prix: 80000, image: "assets/cullotnba2.png", categorie: "Culotte"},
-  { nom: "Veste NBA 1", prix: 200000, image: "assets/jacketnba1.png", categorie: "Veste NBA" },
-  { nom: "Veste NBA 2", prix: 0, image: "assets/jacketnba2.png", categorie: "Veste NBA" },
-  { nom: "Veste NBA 3", prix: 0, image: "assets/jacketnba3.png", categorie: "Veste NBA" },
-  { nom: "Veste NBA 4", prix: 0, image: "assets/jacketnba4.png", categorie: "Veste NBA" },
-  { nom: "Jupe Longue Noire", prix: 0, image: "assets/jupelong.png", categorie: "Jupe" },
-  { nom: "Jupe Longue 2", prix: 0, image: "assets/jupelong2.png", categorie: "Jupe" },
-  { nom: "Jupe Longue 3", prix: 0, image: "assets/jupelong3.png", categorie: "Jupe" },
-  { nom: "Jupe Short 1", prix: 0, image: "assets/jupeshort1.png", categorie: "Jupe" },
-  { nom: "Jupe Short 2", prix: 0, image: "assets/jupeshort2.png", categorie: "Jupe" },
-  { nom: "Jupe Short 3", prix: 0, image: "assets/jupeshort3.png", categorie: "Jupe" },
+  { nom: "Culotte NBA BULLS", prix: 10, image: "assets/cullotnba1.png", categorie: "Culotte" },
+  { nom: "Culotte NBA Viollet", prix: 10, image: "assets/cullotnba2.png", categorie: "Culotte"},
+  { nom: "Pull NBA-NIKE Bleu", prix: 25, image: "assets/jacketnba1.png", categorie: "Veste NBA" },
+  { nom: "Pull NBA Gris ", prix: 30, image: "assets/jacketnba2.png", categorie: "Veste NBA" },
+  { nom: "Pull NBA Blanc-Gris", prix: 27, image: "assets/jacketnba3.png", categorie: "Veste NBA" },
+  { nom: "Pull NBA-NIKE", prix: 25, image: "assets/jacketnba4.png", categorie: "Veste NBA" },
+  { nom: "Jupe Longue Noire", prix: 20, image: "assets/jupelong.png", categorie: "Jupe" },
+  { nom: "Jupe Longue Grise-Noire", prix: 25, image: "assets/jupelong2.png", categorie: "Jupe" },
+  { nom: "Jupe Longue Rouge bordeau", prix: 12, image: "assets/jupelong3.png", categorie: "Jupe" },
+  { nom: "Jupe Courte Bleue-marrine", prix: 10, image: "assets/jupeshort1.png", categorie: "Jupe" },
+  { nom: "Jupe Courte Noire", prix: 15, image: "assets/jupeshort2.png", categorie: "Jupe" },
+  { nom: "Jupe Courte Orange", prix: 8, image: "assets/jupeshort3.png", categorie: "Jupe" },
   { nom: "Kit Argentine 1", prix: 0, image: "assets/kitargentine1.png", categorie: "Maillot football" },
   { nom: "Kit Argentine 2", prix: 0, image: "assets/kitargentine2.png", categorie: "Maillot football" },
   { nom: "Kit Barça", prix: 0, image: "assets/kitbarca.png", categorie: "Maillot football" },
@@ -57,7 +57,7 @@ produits.forEach(produit => {
   div.innerHTML = `
     <img src="${produit.image}" alt="${produit.nom}">
     <h3>${produit.nom}</h3>
-    <p>Prix : ${produit.prix}€</p>
+    <p>Prix : $ ${produit.prix}</p>
     <button class="ajouter-panier" onclick='ajouterAuPanier(${JSON.stringify(produit)})'>Ajouter au panier</button>
   `;
   conteneur.appendChild(div);
