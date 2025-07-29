@@ -1,11 +1,11 @@
 // === Produits en promotion ===
 const produitsPromo = [
-    { nom: "Jupe Longue 3",prixOriginal: 23, prix: 20, image: "assets/jupelong3.png"},
-    { nom: "Retro 1.1", prixOriginal: 25, prix: 20, image: "assets/retro1.1.png"},
-    { nom: "Jupe Short 2", prixOriginal: 20, prix: 15, image: "assets/jupeshort2.png"},
-    { nom: "Kit Barça",prixOriginal: 15, prix: 13, image: "assets/kitbarca.png"},
-    { nom: "Talon 3",prixOriginal: 25, prix: 20, image: "assets/talon3.png"},
-    { nom: "Retro 5.1",prixOriginal: 30, prix: 25, image: "assets/retro5.1.png"}
+    { nom: "Jupe Longue Rouge",prixOriginal: 20, prix: 12, image: "assets/jupelong3.png"},
+    { nom: "Retro Orange-Noir", prixOriginal: 35, prix: 30, image: "assets/retro1.1.png"},
+    { nom: "Jupe Courte Noire", prixOriginal: 20, prix: 15, image: "assets/jupeshort2.png"},
+    { nom: "Maillot Barça Orange", prixOriginal: 20, prix: 18, image: "assets/kitbarca.png"},
+    { nom: "Talon Sandale Noir", prixOriginal: 40, prix: 37, image: "assets/talon3.png"},
+    { nom: "Retro 5 Blanc", prixOriginal: 35, prix: 30, image: "assets/retro5.1.png"}
 ];
 
 // === Fonction pour créer les cartes produits ===
@@ -18,7 +18,7 @@ produitsPromo.forEach((produit) => {
   card.innerHTML = `
     <img src="${produit.image}" alt="${produit.nom}">
     <h3>${produit.nom}</h3>
-    <div class="prixOriginal">${produit.prixOriginal}€</div>
+    <div class="prixOriginal">$ ${produit.prixOriginal}</div>
     <div class="promo">$ ${produit.prix}</div>
     <button>Ajouter au panier</button>
   `;
@@ -27,25 +27,9 @@ produitsPromo.forEach((produit) => {
   const bouton = card.querySelector("button");
   bouton.addEventListener("click", () => {
     ajouterAuPanier(produit);
-    window.location.href = "panier.html"; // Redirection immédiate
   });
 
   container.appendChild(card);
-});
-
-// Fonction pour filtrer les produits en fonction de la recherche
-document.getElementById("recherche-produit").addEventListener("input", function () {
-  const recherche = this.value.toLowerCase();
-  const cartes = document.querySelectorAll(".carte-produit"); // classe que tu donnes à chaque carte
-
-  cartes.forEach((carte) => {
-    const nom = carte.querySelector("h3").textContent.toLowerCase();
-    if (nom.includes(recherche)) {
-      carte.style.display = "block";
-    } else {
-      carte.style.display = "none";
-    }
-  });
 });
 
 // === Ajouter un produit au panier ===
@@ -61,5 +45,6 @@ function ajouterAuPanier(produit) {
   }
 
   localStorage.setItem("panier", JSON.stringify(panier));
+  alert(`${produit.nom} ajouté au panier !`); // affiche une alerte
 }
 

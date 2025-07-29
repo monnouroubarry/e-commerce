@@ -316,4 +316,52 @@ main {
   font-weight: bold;
 }
 
+@media screen and (max-width: 768px) {
+  header, footer {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .recherche-container {
+    width: 90%; /* Réduit le champ de recherche */
+    margin: auto;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .grille-produits,
+  .liste-produits,
+  .contenu-panier {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  .produit-promo {
+    flex: 0 0 160px;
+  }
+
+  .carte-produit img,
+  .produit-promo img,
+  .produit-panier img {
+    height: 120px;
+  }
+
+  .controle-quantite {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  #Accueil, #Produits, #Categories {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  .icone-panier {
+    width: 30px;
+    height: 30px;
+  }
+}
 

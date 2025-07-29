@@ -5,6 +5,13 @@ function afficherPanier() {
   const totalQuantite = document.getElementById("quantite-totale");
   conteneur.innerHTML = "";
 
+  if (panier.length === 0) {
+  conteneur.innerHTML = "<p>Votre panier est vide.</p>";
+  total.textContent = "";
+  totalQuantite.textContent = "";
+  return;
+}
+
   let somme = 0;
   let quantiteTotale = 0;
 
