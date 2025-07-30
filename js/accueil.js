@@ -14,14 +14,18 @@ const container = document.querySelector(".produits-promo-container");
 
 produitsPromo.forEach((produit) => {
   const card = document.createElement("div");
+  const nbreEvaluation = Math.floor(Math.random() * (10000 - 1000 + 1)) + 1000;
   card.className = "produit-promo";
-
   card.innerHTML = `
     <img src="${produit.image}" alt="${produit.nom}">
     <h3>${produit.nom}</h3>
     <div class="prixOriginal">$ ${produit.prixOriginal}</div>
     <div class="promo">$ ${produit.prix}</div>
-    <button>Ajouter au panier</button>
+    <div class="eval-wrapper">
+        <img class="evaluation" src="/assets/evaluation4.png" alt="Évaluation">
+        <span class="nbreEvaluation">${nbreEvaluation}</span>
+    </div>
+    <button class="ajouter-panier" data-produit='${JSON.stringify(produit)}'>Ajouter au panier</button>
   `;
 
   // Gérer le clic sur "Ajouter au panier"

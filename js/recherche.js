@@ -63,12 +63,17 @@ function afficherProduitsAccueil(produitsAffiches) {
   }
 
   produitsAffiches.forEach((produit) => {
+    const nbreEvaluation = Math.floor(Math.random() * (10000 - 1000 + 1)) + 1000;
     const carte = document.createElement("div");
     carte.className = "carte-produit";
     carte.innerHTML = `
       <img src="${produit.image}" alt="${produit.nom}">
       <h3>${produit.nom}</h3>
-      <p id="prix-recherche-accueil"><del> </del>  $ ${produit.prix}</p>
+      <p id="prix-recherche-accueil">Prix $ ${produit.prix}</p>
+      <div class="eval-wrapper">
+        <img class="evaluation" src="/assets/evaluation4.png" alt="Évaluation">
+        <span class="nbreEvaluation">${nbreEvaluation}</span>
+      </div>
       <button class="ajouter-panier" data-produit='${JSON.stringify(produit)}'>Ajouter au panier</button>
     `;
     conteneurAccueil.appendChild(carte);
