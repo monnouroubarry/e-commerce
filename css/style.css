@@ -4,6 +4,15 @@
   margin: 0;
   padding: 0;
 }
+
+/* === ESPACE POUR NE PAS CACHER LE CONTENU === */
+body {
+  padding-top: 70px;   /* Compense la hauteur du header */
+  padding-bottom: 60px; /* Compense la hauteur du footer */
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
 /* === HEADER FIXE === */
 header {
   position: fixed;
@@ -11,30 +20,16 @@ header {
   left: 0;
   width: 100%;
   height: 70px;
-  background-color: #ece687; /* tu peux changer la couleur si besoin */
-  color: white;
+  background: linear-gradient(135deg, #1d2a44, #2e3b60);
+  color: #f0f5ff;
+  /* background-color: #ece687; tu peux changer la couleur si besoin */
+  /* color: white; */
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   padding: 0 1rem;
   z-index: 1000;
-}
-
-.footer-links a img {
-  width: 25px;
-  height: 24px;
-  transition: transform 0.2s ease;
-}
-
-.footer-links a img:hover {
-  transform: scale(1.2); /* agrandir l'icône au survol */
-}
-
-footer p {
-  margin: 5px 0;
-  font-size: 14px;
-  color: #333;
 }
 
 /* ===== CHAMP DE RECHERCHE ===== */
@@ -60,6 +55,7 @@ footer p {
   box-shadow: 0 0 5px #007BFF; /* Optionnel : effet lumineux */
 }
 
+/* icone de recherche dans le champ recherche */
 .icone-loupe {
   position: absolute;
   top: 50%;
@@ -69,30 +65,6 @@ footer p {
   height: 20px;
   pointer-events: none;
   opacity: 0.6;
-}
-
-
-/* === FOOTER FIXE === */
-footer {
-  left: 0;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
-  background-color: #ece687;
-  color: #333;
-  text-align: center;
-  padding-top: 1rem;
-  z-index: 1000;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* === ESPACE POUR NE PAS CACHER LE CONTENU === */
-body {
-  padding-top: 70px;   /* Compense la hauteur du header */
-  padding-bottom: 60px; /* Compense la hauteur du footer */
-  margin: 0;
-  font-family: Arial, sans-serif;
 }
 
 .logo {
@@ -105,12 +77,14 @@ nav {
   align-items: center;
 }
 
+/* le bouton panier qui contient l'icone du panier */
 #Panier {
   padding: 10px 15px;
   background-color: transparent;
   border: none;
 }
 
+/* les boutons de navigation */
 #Accueil, #Produits,
 #Categories{
   padding: 10px 15px;
@@ -122,14 +96,70 @@ nav {
 }
 
 .icone-panier {
-  width: 40x;
-  height: 40px;
+  width: 35x;
+  height: 35px;
 }
 
+/* === FOOTER FIXE === */
+footer {
+  left: 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  /* background-color: #ece687;
+  color: #333; */
+  background: #0f1e3d;
+  color: #d9e7ff;
+  text-align: center;
+  padding-top: 1rem;
+  z-index: 1000;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer-links a img {
+  width: 25px;
+  height: 24px;
+  transition: transform 0.2s ease;
+}
+
+.footer-links a img:hover {
+  transform: scale(1.2); /* agrandir l'icône au survol */
+}
+
+/* les paragraphes dans le footer */
+footer p {
+  margin: 5px 0;
+  font-size: 14px;
+  /* color: #333; */
+  color: #d9e7ff;
+}
+
+/* gestion des évaluations */
+.eval-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 1px 0;
+}
+
+.evaluation {
+  height: 20px !important;
+  width: auto !important;
+}
+
+.nbreEvaluation {
+  font-size: 14px;
+  color: #888;
+}
+
+/* le main dans la page cotégories */
 main {
   padding: 20px;
 }
 
+/* le contenaire qui contient tous les produits */
 .grille-produits {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -137,6 +167,7 @@ main {
   margin-top: 20px;
 }
 
+/* les propriété de chaque produit */
 .carte-produit {
   border: 1px solid #ccc;
   padding: 10px;
@@ -145,6 +176,7 @@ main {
   border-radius: 8px;
 }
 
+/* l'image du produit */
 .carte-produit img {
   margin-bottom: 10;
   width: 100%;
@@ -152,6 +184,7 @@ main {
   object-fit: contain;
 }
 
+/* le bouton ajouter au panier de chaque produit */
 .ajouter-panier {
   margin-top: 0;
   padding: 8px 12px;
@@ -161,9 +194,14 @@ main {
   border-radius: 4px;
   cursor: pointer;
 }
+/* effet de survole de la souris */
 .ajouter-panier:hover {
   background-color: #0084ff;
 }
+
+/* ======== la page panier ============= */
+
+/* bouton retier et vider du panier */
 #btn-retirer-panier, #vider{
   margin-top: 10px;
   padding: 8px 12px;
@@ -173,6 +211,8 @@ main {
   border-radius: 4px;
   cursor: pointer
 }
+
+/* effet de survole de la souris sur les deux boutons */
 #btn-retirer-panier:hover, #vider:hover{
   background-color: #ec1c1c;
 }
@@ -195,12 +235,14 @@ main {
   border-radius: 8px;
 }
 
+/* l'image de chaque produit dans la page panier */
 .produit-panier img {
   width: 100%;
   height: 150px;
   object-fit: contain;
 }
 
+/* le contenaire qui contient chaque produit */
 .liste-produits {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -209,84 +251,6 @@ main {
   max-width: 1200px;
   margin: auto;
   
-}
-
-
-/* === Produits en promotion (Accueil) === */
-
-.produits-promo-container {
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-  margin: 100px auto 30x auto;
-  padding: 20px;
-}
-
-.produits-promo-container::-webkit-scrollbar {
-  height: 8px;
-}
-.produits-promo-container::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 10px;
-}
-
-.produit-promo {
-  flex: 0 0 200px;
-  scroll-snap-align: start;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  padding: 1rem;
-  text-align: center;
-}
-
-.produit-promo img {
-  width: 100%;
-  height: 150px;
-  object-fit: contain;
-  margin-bottom: 0.5rem;
-}
-
-.produit-promo h3 {
-  font-size: 1rem;
-  margin: 0.5rem 0;
-}
-
-.produit-promo .prixOriginal {
-  font-size: 0.9rem;
-  color: gray;
-  text-decoration: line-through;
-}
-
-.produit-promo .promo {
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #d32f2f;
-}
-
-.produit-promo button {
-  margin-top: 0.5rem;
-  padding: 0.5rem;
-  background-color: #00bfff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.produit-promo button:hover {
-  background-color: #0084ff;
-}
-
-/* Grille produit accueil */
-#produits-accueil {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-  padding: 20px;
-  justify-items: center;
 }
 
 .champ-quantite {
@@ -314,11 +278,100 @@ main {
   font-weight: bold;
 }
 
+/* ====== Produits en promotion (Accueil) ====== */
+
+/* le contenaire qui stocke tous les produits en promotion */
+.produits-promo-container {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin: 100px auto 30x auto;
+  padding: 20px;
+}
+
+.produits-promo-container::-webkit-scrollbar {
+  height: 8px;
+}
+.produits-promo-container::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+/* les propriété de chaque produit en promotion */
+.produit-promo {
+  flex: 0 0 200px;
+  scroll-snap-align: start;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: center;
+}
+
+/* propriété de l'image de chaque produit en promotion */
+.produit-promo img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+/* propriété du sous-titre (nom du produit) */
+.produit-promo h3 {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+/* effet du texte du prix original */
+.produit-promo .prixOriginal {
+  font-size: 0.9rem;
+  color: gray;
+  text-decoration: line-through;
+}
+
+/* effet du texte du prix en promotion */
+.produit-promo .promo {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #d32f2f;
+}
+
+/* le produit ajouter au panier des produits en promotion */
+.produit-promo button {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  background-color: #00bfff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* effet de sur vol sur le bouton */
+.produit-promo button:hover {
+  background-color: #0084ff;
+}
+
+/* Grille produit accueil */
+#produits-accueil {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-items: center;
+}
+
 @media screen and (max-width: 768px) {
   header, footer {
     flex-direction: column;
     height: auto;
     padding: 10px;
+    display: flex;
+  }
+  body{
+    margin-top: 100px;
   }
 
   .recherche-container {
@@ -363,22 +416,4 @@ main {
   }
 }
 
-/* gestion des évaluations */
-.eval-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin: 1px 0;
-}
-
-.evaluation {
-  height: 20px !important;
-  width: auto !important;
-}
-
-.nbreEvaluation {
-  font-size: 14px;
-  color: #888;
-}
 

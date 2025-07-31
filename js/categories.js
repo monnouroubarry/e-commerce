@@ -65,7 +65,7 @@ function afficherProduits(produitsAAfficher) {
       <h3>${produit.nom}</h3>
       <p>Prix : $ ${produit.prix}</p>
       <div class="eval-wrapper">
-        <img class="evaluation" src="/assets/evaluation4.png" alt="Évaluation">
+        <img class="evaluation" src="icone/evaluation4.png" alt="Évaluation">
         <span class="nbreEvaluation">${nbreEvaluation}</span>
       </div>
       <button class="ajouter-panier" data-produit='${JSON.stringify(produit)}'>Ajouter au panier</button>
