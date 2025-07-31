@@ -45,4 +45,8 @@ ouvrirpage('Categories','categories.html');
 ouvrirpage('Produits','produits.html');
 ouvrirpage('Panier','panier.html');
 
-// Fonction pour activer la modale et le survol
+// Gestion de scropy dans le footer
+const annee = new Date().getFullYear();
+const texte = `&copy; ${annee} Nour Boutique. Tous droits réservés.`;
+document.getElementById("copyright").innerHTML = texte;
+

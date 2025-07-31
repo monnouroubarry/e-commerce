@@ -8,7 +8,7 @@
 /* === ESPACE POUR NE PAS CACHER LE CONTENU === */
 body {
   padding-top: 70px;   /* Compense la hauteur du header */
-  padding-bottom: 60px; /* Compense la hauteur du footer */
+  padding-bottom: 100px; /* Compense la hauteur du footer */
   margin: 0;
   font-family: Arial, sans-serif;
 }
